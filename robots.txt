@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deltawin.github.io/EllieTheEmpress/sitemap.xml
