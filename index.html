@@ -8,14 +8,24 @@
 </head>
 <body>
 <div class="app">
-<header><a class="brand" href="#"><i>♛</i><div><b>ELLIE</b><span>THE EMPRESS</span></div></a><div class="live"><i></i> FAN EXPERIENCE</div></header>
+<header><a class="brand" href="#"><i>♛</i><div><b>ELLIE</b><span>THE EMPRESS</span></div></a><div class="header-right"><div class="lang-switcher" aria-label="Language"><button type="button" data-lang="fr">🇫🇷 FR</button><button type="button" data-lang="en">🇬🇧 EN</button><button type="button" data-lang="ru">🇷🇺 RU</button></div><div class="live"><i></i> <span data-i18n="fan">EXPÉRIENCE FAN</span></div></div></header>
 <main>
 <section class="hero">
-<div class="copy"><p class="eyebrow">WELCOME TO HER WORLD</p><h1>ELLIE<span>THE EMPRESS</span></h1><p class="bio">Fashion • Lifestyle • Travel • Creator</p><p class="desc">Une expérience fan indépendante dédiée à Ellie The Empress.</p><div class="actions"><a class="main-btn" href="https://www.instagram.com/_ellietheempress_/" target="_blank" rel="noopener noreferrer">Follow Ellie on Instagram <b>↗</b></a><a class="icon-btn" href="https://www.youtube.com/@EllieTheEmpress" target="_blank" rel="noopener noreferrer">▶</a></div></div>
+<div class="copy"><p class="eyebrow" data-i18n="welcome">BIENVENUE DANS SON UNIVERS</p><h1>ELLIE<span>THE EMPRESS</span></h1><p class="bio" data-i18n="bio">Mode • Lifestyle • Voyage • Créatrice</p><p class="desc" data-i18n="desc">Une expérience fan indépendante dédiée à Ellie The Empress.</p><div class="actions"><a class="main-btn" href="https://www.instagram.com/_ellietheempress_/" target="_blank" rel="noopener noreferrer"><span data-i18n="follow">Suivre Ellie sur Instagram</span> <b>↗</b></a><a class="icon-btn" href="https://www.youtube.com/@EllieTheEmpress" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a></div></div>
 <div class="portrait"><img class="ellie-photo" src="HE0_HcibAAAp8MD.webp" alt="Ellie The Empress" fetchpriority="high"><div class="photo-shade"></div><div class="badge"><i></i><b>ELLIE</b><span>THE EMPRESS</span></div></div>
 </section>
 <section class="socials"><a href="https://www.instagram.com/_ellietheempress_/" target="_blank" rel="noopener noreferrer"><b>◎</b><span>Instagram<small>@_ellietheempress_</small></span><i>↗</i></a><a href="https://www.tiktok.com/@ellietheempress" target="_blank" rel="noopener noreferrer"><b>♪</b><span>TikTok<small>@ellietheempress</small></span><i>↗</i></a><a href="https://www.youtube.com/@EllieTheEmpress" target="_blank" rel="noopener noreferrer"><b>▶</b><span>YouTube<small>Ellie The Empress</small></span><i>↗</i></a><a href="https://x.com/empressellievip" target="_blank" rel="noopener noreferrer"><b>𝕏</b><span>X<small>@empressellievip</small></span><i>↗</i></a></section>
 </main>
-<footer><span>UNOFFICIAL FAN EXPERIENCE</span><span>Not affiliated with Ellie The Empress</span></footer>
+<footer><span data-i18n="footerFan">EXPÉRIENCE FAN NON OFFICIELLE</span><span data-i18n="footerLegal">Non affilié à Ellie The Empress</span></footer>
 </div>
+<script>
+const translations={
+fr:{fan:'EXPÉRIENCE FAN',welcome:'BIENVENUE DANS SON UNIVERS',bio:'Mode • Lifestyle • Voyage • Créatrice',desc:'Une expérience fan indépendante dédiée à Ellie The Empress.',follow:'Suivre Ellie sur Instagram',footerFan:'EXPÉRIENCE FAN NON OFFICIELLE',footerLegal:'Non affilié à Ellie The Empress'},
+en:{fan:'FAN EXPERIENCE',welcome:'WELCOME TO HER WORLD',bio:'Fashion • Lifestyle • Travel • Creator',desc:'An independent fan experience dedicated to Ellie The Empress.',follow:'Follow Ellie on Instagram',footerFan:'UNOFFICIAL FAN EXPERIENCE',footerLegal:'Not affiliated with Ellie The Empress'},
+ru:{fan:'ФАН-САЙТ',welcome:'ДОБРО ПОЖАЛОВАТЬ В ЕЁ МИР',bio:'Мода • Лайфстайл • Путешествия • Автор контента',desc:'Независимый фан-сайт, посвящённый Ellie The Empress.',follow:'Подписаться на Ellie в Instagram',footerFan:'НЕОФИЦИАЛЬНЫЙ ФАН-САЙТ',footerLegal:'Не связан с Ellie The Empress'}
+};
+function setLanguage(lang){if(!translations[lang])lang='fr';document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const value=translations[lang][el.dataset.i18n];if(value)el.textContent=value});document.querySelectorAll('[data-lang]').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));try{localStorage.setItem('ellie-language',lang)}catch(e){}}
+document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
+let saved='fr';try{saved=localStorage.getItem('ellie-language')||'fr'}catch(e){}setLanguage(saved);
+</script>
 </body></html>
