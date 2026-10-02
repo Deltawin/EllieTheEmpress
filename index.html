@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ellie The Empress | Unofficial Fan Experience</title>
+  <meta name="description" content="Une expérience fan non officielle dédiée à Ellie The Empress : style, lifestyle, galerie et univers visuel.">
+  <meta name="theme-color" content="#09090b">
+
+  <style>
+    /* =========================================================
+       ELLIE THE EMPRESS — UNOFFICIAL FAN WEBSITE
+       GitHub Pages — Single file edition
+       ========================================================= */
+
+    :root {
+      --bg: #08080a;
+      --bg-soft: #0e0e12;
+      --card: rgba(255,255,255,.055);
+      --card-hover: rgba(255,255,255,.09);
+      --text: #f7f3ec;
+      --muted: #aaa6a0;
+      --gold: #d8b36a;
+      --gold-light: #f2d99b;
+      --line: rgba(255,255,255,.11);
+      --glass: rgba(10,10,13,.72);
+      --radius: 24px;
+      --max: 1240px;
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(216,179,106,.10), transparent 30%),
+        radial-gradient(circle at 90% 35%, rgba(112,70,160,.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: #08080a;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-light);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: .98;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: fixed;
+      z-index: 1000;
+      inset: 0 0 auto;
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(8,8,10,.78);
+      backdrop-filter: blur(18px);
+      border-color: var(--line);
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      z-index: 1002;
+    }
+
+    .brand strong {
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: .04em;
+    }
+
+    .brand span {
+      color: var(--gold);
+      font-size: .58rem;
+      margin-top: 7px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #d6d2cc;
+      font-size: .83rem;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      color: white;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 150px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      top: 7%;
+      right: -120px;
+      background:
+        radial-gradient(circle, rgba(216,179,106,.18), rgba(216,179,106,.025) 45%, transparent 70%);
+      filter: blur(10px);
+    }
+
+    .hero::after {
+      content: "E";
+      position: absolute;
+      right: 3%;
+      bottom: -18%;
+      font-family: Georgia, serif;
+      font-size: clamp(26rem, 48vw, 48rem);
+      line-height: 1;
+      color: rgba(255,255,255,.018);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 24px 0;
+      font-size: clamp(4.2rem, 10vw, 9rem);
+      letter-spacing: -.065em;
+    }
+
+    .hero h1 em {
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      color: #bbb7b0;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      color: #12100c;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(216,179,106,.22);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: black;
+    }
+
+    .hero-card {
+      padding: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card .crown {
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+
+    .hero-card h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .hero-card-line {
+      height: 1px;
+      background: var(--line);
+      margin: 26px 0;
+    }
+
+    .micro {
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 120px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 55px;
+    }
+
+    .section-head h2 {
+      margin-top: 15px;
+      font-size: clamp(3rem, 6vw, 5.7rem);
+      letter-spacing: -.045em;
+    }
+
+    .section-head p {
+      max-width: 430px;
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .portrait-placeholder {
+      aspect-ratio: 4 / 5;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 60% 30%, rgba(216,179,106,.22), transparent 28%),
+        linear-gradient(145deg,#19171b,#0d0d10);
+    }
+
+    .portrait-placeholder::before {
+      content: "ELLIE";
+      position: absolute;
+      font-family: Georgia, serif;
+      font-size: clamp(5rem, 12vw, 10rem);
+      color: rgba(255,255,255,.035);
+      transform: rotate(-90deg);
+    }
+
+    .portrait-placeholder .initial {
+      position: relative;
+      font-family: Georgia, serif;
+      font-size: 12rem;
+      color: var(--gold-light);
+      text-shadow: 0 20px 70px rgba(216,179,106,.2);
+    }
+
+    .about-content h2 {
+      margin: 18px 0 28px;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      letter-spacing: -.05em;
+    }
+
+    .about-content p {
+      max-width: 660px;
+      margin-bottom: 18px;
+      color: #b9b5af;
+    }
+
+    .quote {
+      margin-top: 35px;
+      padding: 28px 0 28px 28px;
+      border-left: 1px solid var(--gold);
+      font-family: Georgia, serif;
+      color: #ece4d6;
+      font-size: 1.45rem;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 120px;
+      gap: 16px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #111;
+      cursor: pointer;
+    }
+
+    .gallery-card:nth-child(1) {
+      grid-column: span 7;
+      grid-row: span 4;
+    }
+
+    .gallery-card:nth-child(2) {
+      grid-column: span 5;
+      grid-row: span 2;
+    }
+
+    .gallery-card:nth-child(3) {
+      grid-column: span 5;
+      grid-row: span 2;
+    }
+
+    .gallery-card:nth-child(4),
+    .gallery-card:nth-child(5),
+    .gallery-card:nth-child(6) {
+      grid-column: span 4;
+      grid-row: span 3;
+    }
+
+    .gallery-art {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      transition: transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .gallery-card:hover .gallery-art {
+      transform: scale(1.045);
+    }
+
+    .art-1 {
+      background:
+        radial-gradient(circle at 70% 30%, rgba(240,206,139,.35), transparent 22%),
+        linear-gradient(135deg,#302317,#0c0b0b 60%);
+    }
+
+    .art-2 {
+      background: linear-gradient(135deg,#191520,#412e51);
+    }
+
+    .art-3 {
+      background: linear-gradient(135deg,#28221b,#766044);
+    }
+
+    .art-4 {
+      background: linear-gradient(135deg,#131416,#2c343d);
+    }
+
+    .art-5 {
+      background: linear-gradient(135deg,#25171b,#60353d);
+    }
+
+    .art-6 {
+      background: linear-gradient(135deg,#141414,#3b3022);
+    }
+
+    .gallery-letter {
+      font-family: Georgia, serif;
+      font-size: clamp(5rem, 10vw, 9rem);
+      color: rgba(255,255,255,.13);
+    }
+
+    .gallery-info {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 70px 22px 20px;
+      background: linear-gradient(transparent,rgba(0,0,0,.8));
+    }
+
+    .gallery-info small {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    .gallery-info h3 {
+      margin-top: 5px;
+      font-size: 1.5rem;
+    }
+
+    /* WORLDS */
+
+    .world-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .world {
+      min-height: 390px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.015));
+      transition: .3s ease;
+    }
+
+    .world:hover {
+      transform: translateY(-8px);
+      border-color: rgba(216,179,106,.4);
+      background: var(--card-hover);
+    }
+
+    .world .number {
+      margin-bottom: auto;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 3rem;
+    }
+
+    .world h3 {
+      margin-bottom: 15px;
+      font-size: 2.4rem;
+    }
+
+    .world p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* SOCIAL */
+
+    .social-box {
+      padding: 65px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(216,179,106,.10), transparent 50%),
+        rgba(255,255,255,.025);
+    }
+
+    .social-box h2 {
+      max-width: 850px;
+      margin: 15px auto 22px;
+      font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: -.055em;
+    }
+
+    .social-box p {
+      max-width: 620px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .social-links {
+      margin-top: 38px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .social-link {
+      padding: 14px 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      transition: .2s;
+    }
+
+    .social-link:hover {
+      background: var(--gold-light);
+      color: #111;
+      border-color: var(--gold-light);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: #7f7c78;
+      font-size: .78rem;
+    }
+
+    .footer-grid strong {
+      color: #d7d2ca;
+    }
+
+    /* REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        background: rgba(8,8,10,.97);
+        backdrop-filter: blur(20px);
+        transform: translateX(100%);
+        transition: transform .35s ease;
+      }
+
+      .nav-links.open {
+        transform: none;
+      }
+
+      .nav-links a {
+        font-family: Georgia, serif;
+        font-size: 2rem;
+      }
+
+      .menu-btn {
+        display: grid;
+        place-items: center;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        align-items: center;
+      }
+
+      .hero-card {
+        max-width: 600px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 25px;
+      }
+
+      .world-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .world {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .nav {
+        height: 70px;
+      }
+
+      .hero {
+        padding: 115px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.8rem, 20vw, 6rem);
+      }
+
+      section {
+        padding: 85px 0;
+      }
+
+      .gallery {
+        display: block;
+      }
+
+      .gallery-card {
+        min-height: 370px;
+        margin-bottom: 14px;
+      }
+
+      .social-box {
+        padding: 45px 20px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header" id="header">
+  <div class="container nav">
+
+    <a href="#home" class="brand">
+      <strong>Ellie The Empress</strong>
+      <span>Unofficial Fan Experience</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Accueil</a>
+      <a href="#about">Ellie</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#universe">Univers</a>
+      <a href="#social">Réseaux</a>
+    </nav>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false">
+      ☰
+    </button>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+
+      <div>
+        <span class="eyebrow">Welcome to the Empire</span>
+
+        <h1>
+          Ellie<br>
+          <em>The Empress</em>
+        </h1>
+
+        <p class="hero-copy">
+          Une expérience visuelle non officielle consacrée à l'univers
+          d'Ellie The Empress — lifestyle, élégance, voyages et inspiration.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#gallery" class="btn btn-primary">Découvrir la galerie</a>
+          <a href="#about" class="btn btn-secondary">Explorer son univers ↓</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="crown">♕</div>
+
+        <span class="eyebrow">The Empress</span>
+
+        <h3>Confidence.<br>Style. Freedom.</h3>
+
+        <p>
+          Un espace créé par des fans pour célébrer un univers mêlant
+          mode, lifestyle et création digitale.
+        </p>
+
+        <div class="hero-card-line"></div>
+
+        <div class="micro">
+          <span>Fan Project</span>
+          <span>2026</span>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container about-grid">
+
+      <div class="portrait-placeholder reveal">
+        <span class="initial">E</span>
+      </div>
+
+      <div class="about-content reveal">
+        <span class="eyebrow">Discover Ellie</span>
+
+        <h2>An unmistakable presence.</h2>
+
+        <p>
+          Ellie The Empress s'est construit un univers visuel immédiatement
+          reconnaissable autour du lifestyle, de la mode, des voyages et
+          de la création de contenu.
+        </p>
+
+        <p>
+          Cette page est un projet fan indépendant conçu comme un magazine
+          numérique moderne et évolutif.
+        </p>
+
+        <div class="quote">
+          “Create your own atmosphere.”
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+    <div class="container">
+
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Visual Stories</span>
+          <h2>Gallery.</h2>
+        </div>
+
+        <p>
+          Ces emplacements sont prêts à accueillir les photos que nous
+          ajouterons ensuite directement au projet GitHub.
+        </p>
+      </div>
+
+      <div class="gallery">
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-1">
+            <span class="gallery-letter">E</span>
+          </div>
+          <div class="gallery-info">
+            <small>Featured</small>
+            <h3>The Empress</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-2">
+            <span class="gallery-letter">L</span>
+          </div>
+          <div class="gallery-info">
+            <small>Lifestyle</small>
+            <h3>Everyday elegance</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-3">
+            <span class="gallery-letter">F</span>
+          </div>
+          <div class="gallery-info">
+            <small>Fashion</small>
+            <h3>Signature style</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-4">
+            <span class="gallery-letter">T</span>
+          </div>
+          <div class="gallery-info">
+            <small>Travel</small>
+            <h3>Escape</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-5">
+            <span class="gallery-letter">V</span>
+          </div>
+          <div class="gallery-info">
+            <small>Visual</small>
+            <h3>Moments</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card reveal">
+          <div class="gallery-art art-6">
+            <span class="gallery-letter">♕</span>
+          </div>
+          <div class="gallery-info">
+            <small>Empress</small>
+            <h3>Golden hour</h3>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- UNIVERSE -->
+
+  <section id="universe">
+    <div class="container">
+
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">The Universe</span>
+          <h2>More than<br>a feed.</h2>
+        </div>
+
+        <p>
+          Une présentation éditoriale conçue pour évoluer au fur et à
+          mesure que nous ajouterons du contenu au site.
+        </p>
+      </div>
+
+      <div class="world-grid">
+
+        <article class="world reveal">
+          <div class="number">01</div>
+          <h3>Fashion</h3>
+          <p>
+            Looks, inspirations et esthétique personnelle dans une galerie
+            pensée comme un magazine.
+          </p>
+        </article>
+
+        <article class="world reveal">
+          <div class="number">02</div>
+          <h3>Lifestyle</h3>
+          <p>
+            Des moments, des ambiances et une sélection de contenus autour
+            de son univers.
+          </p>
+        </article>
+
+        <article class="world reveal">
+          <div class="number">03</div>
+          <h3>Travel</h3>
+          <p>
+            Destinations et expériences réunies dans un espace visuel
+            spécialement conçu pour la photographie.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SOCIAL -->
+
+  <section id="social">
+    <div class="container">
+
+      <div class="social-box reveal">
+        <span class="eyebrow">Follow the journey</span>
+
+        <h2>Enter the Empire.</h2>
+
+        <p>
+          Retrouvez Ellie sur ses plateformes publiques. Nous ajouterons
+          les liens officiels vérifiés ici.
+        </p>
+
+        <div class="social-links">
+          <a class="social-link" href="#" aria-label="Instagram">Instagram</a>
+          <a class="social-link" href="#" aria-label="YouTube">YouTube</a>
+          <a class="social-link" href="#" aria-label="X">X / Twitter</a>
+          <a class="social-link" href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <strong>Ellie The Empress</strong><br>
+      Unofficial Fan Experience
+    </div>
+
+    <div>
+      Projet fan indépendant — non affilié ou approuvé par Ellie The Empress.
+    </div>
+
+    <div>
+      © <span id="year"></span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  (() => {
+    "use strict";
+
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    // Header glass effect
+    const updateHeader = () => {
+      header.classList.toggle("scrolled", window.scrollY > 20);
+    };
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    // Mobile menu
+    menuBtn.addEventListener("click", () => {
+      const opened = navLinks.classList.toggle("open");
+
+      document.body.classList.toggle("menu-open", opened);
+
+      menuBtn.setAttribute("aria-expanded", String(opened));
+      menuBtn.textContent = opened ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+
+    // Automatic copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
