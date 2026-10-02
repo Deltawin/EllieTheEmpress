@@ -1,0 +1,13 @@
+{
+  "name": "Ellie The Empress — Fan Experience",
+  "short_name": "Ellie",
+  "description": "Unofficial Ellie The Empress fan experience.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {"src":"HE0_HcibAAAp8MD.webp","sizes":"any","type":"image/webp","purpose":"any"}
+  ]
+}
